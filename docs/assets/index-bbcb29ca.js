@@ -1284,7 +1284,12 @@ Please report this to https://github.com/markedjs/marked.`,a.silent)return"<p>An
   </section>
   <section data-auto-animate data-auto-animate-id="group5">
     <h2>Denoising all the way</h2>
-    <a data-id="a" target="_blank" href="http://localhost:5174/">Animation</a>
+    <a
+      data-id="a"
+      target="_blank"
+      href="https://salamanderxing.github.io/diffusion_animation/"
+      >Animation</a
+    >
   </section>
   <section data-auto-animate data-auto-animate-id="group6">
     <h2>Additional Denoising Term</h2>
