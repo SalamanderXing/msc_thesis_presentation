@@ -1,200 +1,228 @@
-# Abstract
+## Improving ELBO Computation in Graph Diffusion Models
 
-Your content here.
+#### Giulio Zani
 
----
+#### Maastricht University
 
-# Background
+#### Msc Artificial Intelligence
 
----
-
-## Generative Models
+<img src='./one_molecule.png' class='rounded-image' style='max-width:85%'>
 
 ---
 
-### Generative Models: An Overview
+### The Challenge of Molecular Generative Models
+
+- **Status Quo**: Existing models struggle with accurate ELBO representation.
+- **The Hurdle**: Ensuring both sample quality and computational efficiency.
+- **The Quest**: To devise a training loss function that addresses these gaps.
+
+Note: Mention graph compression
 
 ---
 
-### Common Types of Generative Models
+## 2. Research Question
+
+<div class='fragment'>
+    <i>Can we improve on the state-of-the-art ELBO computation using diffusion models on graphs while preserving permutation equivariance?</i>
+</div>
 
 ---
 
-### Limitations of Existing Generative Models
+## Background
 
 ---
 
-### Historical Development
+### Generative Models
+
+<!-- #### 4.1.1 Generative Models: An Overview -->
 
 ---
 
-## Diffusion Models
+<!-- <img src='./GANs.svg' style='max-width:85%'> -->
+<img class="fragment fade-in fade-out" src="./GANs.svg"/>
+<img class="fragment fade-out" src="./VAEs.svg" />
+<img class="fragment fade-out" src="./Normalizing Flows.svg" />
+<img class="fragment" src="./Autoregressive Models.svg" />
+<img class="fragment" src="./Diffusion models.svg" />
 
 ---
 
-### Introduction
+<img src='./VAEs.svg' style='max-width:85%'>
 
 ---
 
-### Gaussian Diffusion Models
+<img src='./Normalizing Flows.svg' style='max-width:85%'>
 
 ---
 
-### Discrete Diffusion Models
+<img src='./Autoregressive Models.svg' style='max-width:85%'>
 
 ---
 
-### Diffusion Models on Graphs
+<img src='./Diffusion models.svg' style='max-width:85%'>
 
 ---
 
-## Graph Neural Networks
+#### 4.1.2 Common Types of Generative Models
 
 ---
 
-### The Message Passing Framework
+#### 4.1.3 Limitations of Existing Generative Models
 
 ---
 
-### Graph Transformer Networks
+#### 4.1.4 Historical Development
 
 ---
 
-## Deep Learning Framework
+### 4.2 Diffusion Models
 
 ---
 
-### JAX: Autograd and XLA
+#### 4.2.1 Introduction
 
 ---
 
-## Hardware Acceleration
+#### 4.2.2 Gaussian Diffusion Models
 
 ---
 
-### GPUs: Evolution from graphics rendering to parallel computation
+#### 4.2.3 Discrete Diffusion Models
 
 ---
 
-### TPUs: Introduction and motivation for development
+### 4.3 Diffusion Models on Graphs
 
 ---
 
-# Method
+#### 4.3.1 Graph Neural Networks
 
 ---
 
-## Graph Modeling and Diffusion Process
+##### 4.3.1.1 The message passing framework
 
 ---
 
-### Graph Representation
+#### 4.3.2 Graph Transformer Networks
 
 ---
 
-### Variational Lower Bound
+### 4.4 Deep Learning Framework
 
 ---
 
-### Diffusion Process
+#### 4.4.1 JAX: Autograd and XLA
 
 ---
 
-#### Forward Process
+### 4.5 Hardware Acceleration
 
 ---
 
-#### Noise Schedule and Transition Probabilities
+#### 4.5.1 GPUs: Evolution from graphics rendering to parallel computation
 
 ---
 
-#### Empirical Prior Matrix
+#### 4.5.2 TPUs: Introduction and motivation for development
 
 ---
 
-#### Marginalizing Over Timesteps
+## 5. Method
 
 ---
 
-### Training Objective
+### 5.1 Introduction
 
 ---
 
-### Evaluation Metrics and Sanity Checks
+### 5.2 Define the optimal graph representation
 
 ---
 
-### Numerical Stability
+### 5.3 Computing Variational Lower Bound
 
 ---
 
-### Choice of Graph Neural Network
+### 5.4 Diffusion Process
 
 ---
 
-### Dataset
+#### 5.4.1 Forward Process
 
 ---
 
-### Computing Platform
+#### 5.4.2 Noise Schedule and Transition Probabilities
 
 ---
 
-# Experiments
+#### 5.4.3 Defining the Prior
 
 ---
 
-## Introduction
+#### 5.4.4 Marginalizing Over Timesteps
 
 ---
 
-## Experimental Setup
+#### 5.4.5 Training Objective
 
 ---
 
-### Comparison Framework
+## 6. Training Objective
 
 ---
 
-#### Main Experiment: ELBO Computation
+### 6.1 Evaluation Metrics
 
 ---
 
-#### Additional Experiments
+### 6.2 Optimizing for Numerical Stability
 
 ---
 
-#### Qualitative Analysis
+### 6.3 Choice of Graph Neural Network
 
 ---
 
-#### Summary
+### 6.4 Choice of Dataset
 
 ---
 
-#### Future Work
+### 6.5 Trainig on the computing platform
 
 ---
 
-# Conclusion
+## 7. Experiments
 
 ---
 
-## Summary of Contributions
+### 7.1 Main Experiment: ELBO Computation
 
 ---
 
-## Implications
+### 7.2 Molecule Generation
 
 ---
 
-## Limitations
+### 7.3 Qualitative Analysis
 
 ---
 
-## Future Directions
+## 8. Conclusion
 
 ---
 
-## Closing Remarks
+### 8.1 Summary of Contributions
 
+---
+
+### 8.2 Implications
+
+---
+
+### 8.3 Limitations
+
+---
+
+### 8.4 Future Directions
+
+---

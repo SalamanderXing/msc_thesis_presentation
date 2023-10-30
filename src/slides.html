@@ -1,0 +1,410 @@
+<section>
+  <section>
+    <h2>Improving ELBO Computation in Graph Diffusion Models</h2>
+    <h4>Giulio Zani</h4>
+    <h4>Maastricht University</h4>
+    <h4>Msc Artificial Intelligence</h4>
+    <img
+      src="./one_molecule.png"
+      class="rounded-image"
+      style="max-width: 85%"
+    />
+  </section>
+  <section>
+    <h3>The Challenge of Molecular Generative Models</h3>
+    <ul>
+      <li>
+        <strong>Status Quo:</strong> Existing models struggle with accurate ELBO
+        representation.
+      </li>
+      <li>
+        <strong>The Hurdle:</strong> Ensuring sample quality and permutation
+        equivariance.
+      </li>
+      <li>
+        <strong>The Quest:</strong> To devise a training loss function that
+        addresses these gaps.
+      </li>
+    </ul>
+    <aside class="notes">Mention graph compression</aside>
+  </section>
+  <section>
+    <h2>2. Research Question</h2>
+    <div class="fragment">
+      <i
+        >Can we improve on the state-of-the-art ELBO computation using diffusion
+        models on graphs while preserving permutation equivariance?</i
+      >
+    </div>
+  </section>
+  <section>
+    <h2>Background</h2>
+    <div class="fragment">What are diffusion models?</div>
+    <div class="fragment">What makes them so powerful?</div>
+    <div class="fragment">Some note on graph neural networks.</div>
+    <div class="fragment">How can we use them on graphs?</div>
+  </section>
+
+  <section data-auto-animate>
+    <em>
+      "As the sun casts its golden glow over the landscape, mechanical puppies
+      come to life ..... creating a poignant moment amidst the joyous backdrop."
+    </em>
+  </section>
+  <section data-auto-animate>
+    <img src="./mechanical_puppies.png" class="rounded-image" />
+  </section>
+</section>
+<section id="after-this">
+  <section>
+    <h3>Generative Models</h3>
+    <img
+      src="./supervised_vs_unsupervised.png"
+      class="rounded-image"
+      style="width: 150% !important"
+    />
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Diffusion Models Architecture</h2>
+    <img
+      src="./ink_spreading_v2.png"
+      class="rounded-image"
+      style="max-width: 60%"
+    />
+  </section>
+  <section>
+    <figure>
+      <img src="./DDPM.png" class="rounded-image" />
+      <figcaption>Image source: Jo et al. 2020</figcaption>
+    </figure>
+  </section>
+  <section>
+    <h2>Data Type</h2>
+    <div class="fragment">Images: Continuous</div>
+    <div class="fragment">Graphs: Discrete</div>
+  </section>
+  <section>
+    <h2>This Work is based on</h2>
+    <img src="./digress.png" class="rounded-image" />
+  </section>
+  <section>
+    <h2>Basic Components of this architecture</h2>
+    <table>
+      <tr class="fragment">
+        <td>Noise function</td>
+        <td>$$q(\mathbf{x}_{T} \vert \mathbf{x}_0)$$</td>
+      </tr>
+      <tr class="fragment">
+        <td>Noise schedule</td>
+        <td>$$q(\mathbf{x}_{t+1} \vert \mathbf{x}_t)$$</td>
+      </tr>
+      <tr class="fragment">
+        <td>Probabilistic Model</td>
+        <td>$$p_\theta(\mathbf{x}_{t-1} \vert \mathbf{x}_{t})$$</td>
+      </tr>
+    </table>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group1">
+    <h2>Noise Function</h2>
+    <p data-id="p">$$q(\mathbf{x}_{T} \vert \mathbf{x}_0)$$</p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group1">
+    <h2>Noise Function</h2>
+    <p data-id="p">$$q(\mathbf{x}_{T})$$</p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group1">
+    <h2>Noise Function</h2>
+    <img src="./gaussian_distribution.png" class="rounded-image" />
+  </section>
+  <section data-auto-animate data-auto-animate-id="group1">
+    <h2>Noise Function</h2>
+    <img src="./categorical_distribution.png" class="rounded-image" />
+  </section>
+  <section data-auto-animate data-auto-animate-id="group2">
+    <h2>Noise Schedule</h2>
+    <p>$$q(\mathbf{x}_{t+1} \vert \mathbf{x}_t)$$</p>
+  </section>
+
+  <section data-auto-animate data-auto-animate-id="group2">
+    <h2>Noise Schedule</h2>
+    <h4>Cosine Schedule</h4>
+    <img
+      src="./cosine_schedule.png"
+      class="rounded-image"
+      style="max-width: 90%"
+    />
+  </section>
+  <section data-auto-animate data-auto-animate-id="group2">
+    <h2>Noise Schedule</h2>
+    <h4>Cosine Schedule</h4>
+    <figure>
+      <img
+        src="./cosine_vs_linear_dog.png"
+        class="rounded-image"
+        style="max-width: 90%"
+      />
+      <figcaption>
+        Cosine schedule vs linear. Image source: Jo et al. 2020
+      </figcaption>
+    </figure>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <p>$$p_\theta(\mathbf{x}_{t-1} \vert \mathbf{x}_{t})$$</p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <p>Graph Neural Network</p>
+    <div class="image-wrapper">
+      <img
+        src="./message_passing.png"
+        style="max-width: 50%"
+        class="foreground"
+      />
+    </div>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+
+    <div class="image-wrapper">
+      <img
+        src="./cnn_vs_gnn_2.png"
+        style="max-width: 90%; margin: -7%; margin-top: -5%"
+        class="foreground"
+      />
+    </div>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <h4>Graph Neural Network (GNN)</h4>
+    <p class="smaller-math">
+      $$ h_u^{(k+1)} = \text{UPDATE}^{(k)} \left( h_u^{(k)},
+      \text{AGGREGATE}^{(k)} \left\{ h_v^{(k)}, \, \forall v \in \mathcal{N}(u)
+      \right\} \right) $$
+    </p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <h4>Graph Neural Network (GNN)</h4>
+    <img src="./isomorphism_problem.png" style="max-width: 100%" />
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <h4 data-id="g">Graph Neural Network (GNN)</h4>
+    <p>Drawbacks:</p>
+    <ul>
+      <li class="fragment">Oversmoothing</li>
+      <li class="fragment">Oversquashing</li>
+      <li class="fragment">Inability to detect loops</li>
+    </ul>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group3">
+    <h2>Deep Probabilistic Model</h2>
+    <h4 data-id="g">Graph Transformer</h4>
+    <img src="./gtn.png" class="rounded-image" style="max-width: 90%" />
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Validation and Training loss</h2>
+  </section>
+  <section>
+    <h2>What is the ELBO?</h2>
+    <p>Evidence Lower BOund</p>
+    <p>$$-\log(p(\textbf{x})) \leq \textbf{ELBO}(\textbf{x})$$</p>
+  </section>
+  <section data-auto-animate>
+    <h2>ELBO for diffusion models</h2>
+    <p>
+      $$L_{\text{ELBO}} = L_{\text{prior}} + L_{\text{diff}} + L_{\text{rec}}$$
+    </p>
+  </section>
+  <section data-auto-animate>
+    <h2>ELBO for diffusion models</h2>
+    <p>
+      $$L_{\text{prior}} = D_\text{KL}(q(\mathbf{x}_T \vert \mathbf{x}_0)
+      \parallel p(\mathbf{x}_T))$$
+    </p>
+  </section>
+  <section data-auto-animate>
+    <h2>ELBO for diffusion models</h2>
+    <p>$$L_{\text{prior}} = 0!$$</p>
+  </section>
+  <section data-auto-animate>
+    <h2>ELBO for diffusion models</h2>
+    <p>
+      $$ L_{\text{diff}} = \mathbb{E}_{q(\mathbf{x}_t \vert \mathbf{x}_0)}\left[
+      \sum_{t=2}^T D_\text{KL}(q(\mathbf{x}_{t-1} \vert \mathbf{x}_t,
+      \mathbf{x}_0) \parallel p_\theta(\mathbf{x}_{t-1} \vert\mathbf{x}_t))
+      \right] $$
+    </p>
+  </section>
+  <section data-auto-animate>
+    <h2>ELBO for diffusion models</h2>
+    <p>
+      $$L_{\text{rec}} = \mathbb{E}_{q(\mathbf{x}_1 \vert \mathbf{x}_0)} \left[-
+      \log p_\theta(\mathbf{x}_0 \vert \mathbf{x}_1) \right]$$
+    </p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group5">
+    <h2>Denoising all the way</h2>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group5">
+    <h2>Denoising all the way</h2>
+    <p data-id="a">$$p_{\theta}(\mathbf{x}_0 | \mathbf{x}_t)$$</p>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group5">
+    <h2>Denoising all the way</h2>
+    <a data-id="a" target="_blank" href="http://localhost:5174/">Animation</a>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group6">
+    <h2>Additional Denoising Term</h2>
+  </section>
+  <section data-auto-animate data-auto-animate-id="group6">
+    <h2>Additional Denoising Term</h2>
+    <figure>
+      <p>
+        $$\begin{align*} L_\text{den} & = \mathbb{E}_{t \sim \text{Uniform}(1,
+        T)}\mathbb{E}_{q(\mathbf{x}_1 \vert \mathbf{x}_0)} \left[- \log
+        p_\theta(\mathbf{x}_0 \vert \mathbf{x}_t) \right], \\ & = \mathbb{E}_{t
+        \sim \text{Uniform}(1, T)}\text{cross-entropy}(p_\theta(\mathbf{x}_0
+        \vert \mathbf{x}_t), \mathbf{x}_0) \end{align*}$$
+      </p>
+      <figcaption>Introduced by: Chen et al. 2021</figcaption>
+    </figure>
+  </section>
+  <section>
+    <h2>Training Loss</h2>
+    <p>
+      $$\text{Training loss} = \lambda (\hat{L}_{\text{diff}} +
+      \hat{L}_{\text{rec}}) + (1 - \lambda) L_{\text{den}}$$ $$\lambda \in [0,
+      1]$$
+    </p>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Experiments</h2>
+  </section>
+  <section>
+    <h2>Dataset: QM9</h2>
+    <ul>
+      <li>133k small organic molecules</li>
+      <li>12 properties</li>
+      <li>Graphs with 9 nodes</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Main Experiment: ELBO computation</h2>
+    <table border="1" style="text-align: center; border-collapse: collapse">
+      <tr>
+        <th>Model</th>
+        <th>ELBO <span class="small">[nats/graph]</span></th>
+      </tr>
+      <tr>
+        <td>DiGress</td>
+        <td>69.2</td>
+      </tr>
+      <tr>
+        <td>DDGD</td>
+        <td><strong>52.3</strong></td>
+      </tr>
+      <caption>
+        ELBO results on the QM9 dataset (the lower the better).
+      </caption>
+    </table>
+  </section>
+  <section>
+    <h2>Experiment: Molecule generation</h2>
+    <table
+      border="1"
+      style="text-align: center; border-collapse: collapse"
+      class="medium"
+    >
+      <caption>
+        Comparative Analysis of Molecule Generation: Validity and Uniqueness
+        Metrics across Models
+      </caption>
+      <tr>
+        <th>Model</th>
+        <th>Relaxed Validity</th>
+        <th>Uniqueness</th>
+      </tr>
+      <tr>
+        <td>Dataset</td>
+        <td>99.3</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>DiGress</td>
+        <td><strong>99.0</strong></td>
+        <td>96.2</td>
+      </tr>
+      <tr>
+        <td>Set2GraphVAE</td>
+        <td>59.9</td>
+        <td>93.8</td>
+      </tr>
+      <tr>
+        <td>SPECTRE</td>
+        <td>87.3</td>
+        <td>35.7</td>
+      </tr>
+      <tr>
+        <td>GraphNVP</td>
+        <td>83.1</td>
+        <td>99.2</td>
+      </tr>
+      <tr>
+        <td>GDSS</td>
+        <td>95.7</td>
+        <td>98.5</td>
+      </tr>
+      <tr>
+        <td>DDGD (ours)</td>
+        <td>96.0</td>
+        <td><strong>100.0</strong></td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 style="z-index: 100; position: relative">Qualitative Analysis</h2>
+    <div
+      style="
+        position: relative;
+        z-index: -100;
+        overflow: hidden;
+        max-height: 60%;
+      "
+    >
+      <img
+        src="./smiles_plot.png"
+        class="rounded-image"
+        style="max-width: 100%; height: auto; top: -30%; position: relative"
+      />
+    </div>
+  </section>
+  <section>
+    <h2 style="z-index: 100; position: relative">Qualitative Analysis</h2>
+    <div
+      style="
+        position: relative;
+        z-index: -100;
+        overflow: hidden;
+        max-height: 60%;
+      "
+    >
+      <img
+        src="./smiles_data_plot.png"
+        class="rounded-image"
+        style="max-width: 100%; height: auto; top: -30%; position: relative"
+      />
+    </div>
+  </section>
+</section>
+<section>
+  <h2>Conclusion</h2>
+</section>
