@@ -1028,8 +1028,17 @@ Please report this to https://github.com/markedjs/marked.`,a.silent)return"<p>An
 `),W.markdown=z[0]&&typeof z[0].getAttribute("data-markdown")=="string"),s.postMessage(JSON.stringify(W),"*")}function y(R){if(function(E){try{return window.location.origin===E.source.location.origin}catch{return!1}}(R)){let E=JSON.parse(R.data);E&&E.namespace==="reveal-notes"&&E.type==="connected"?(clearInterval(P),x()):E&&E.namespace==="reveal-notes"&&E.type==="call"&&function(z,D,W){let q=a[z].apply(a,D);s.postMessage(JSON.stringify({namespace:"reveal-notes",type:"return",result:q,callId:W}),"*")}(E.methodName,E.arguments,E.callId)}}function x(){a.on("slidechanged",d),a.on("fragmentshown",d),a.on("fragmenthidden",d),a.on("overviewhidden",d),a.on("overviewshown",d),a.on("paused",d),a.on("resumed",d),d()}return{id:"notes",init:function(R){a=R,/receiver/i.test(window.location.search)||(window.location.search.match(/(\?|\&)notes/gi)!==null?r():window.addEventListener("message",E=>{if(!s&&typeof E.data=="string"){let D;try{D=JSON.parse(E.data)}catch{}D&&D.namespace==="reveal-notes"&&D.type==="heartbeat"&&(z=E.source,s&&!s.closed?s.focus():(s=z,window.addEventListener("message",y),x()))}var z}),a.addKeyBinding({keyCode:83,key:"S",description:"Speaker notes view"},function(){r()}))},open:r}}})})(kn);var xi=kn.exports;const Si=yn(xi);var wn={exports:{}};(function(g,t){(function(e,n){g.exports=n()})(bn,function(){const e=()=>{let i,o={messageStyle:"none",tex2jax:{inlineMath:[["$","$"],["\\(","\\)"]],skipTags:["script","noscript","style","textarea","pre"]},skipStartupTypeset:!0};return{id:"mathjax2",init:function(l){i=l;let h=i.getConfig().mathjax2||i.getConfig().math||{},c={...o,...h},k=(c.mathjax||"https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js")+"?config="+(c.config||"TeX-AMS_HTML-full");c.tex2jax={...o.tex2jax,...h.tex2jax},c.mathjax=c.config=null,function(v,m){let f=document.querySelector("head"),w=document.createElement("script");w.type="text/javascript",w.src=v;let u=()=>{typeof m=="function"&&(m.call(),m=null)};w.onload=u,w.onreadystatechange=()=>{this.readyState==="loaded"&&u()},f.appendChild(w)}(k,function(){MathJax.Hub.Config(c),MathJax.Hub.Queue(["Typeset",MathJax.Hub,i.getRevealElement()]),MathJax.Hub.Queue(i.layout),i.on("slidechanged",function(v){MathJax.Hub.Queue(["Typeset",MathJax.Hub,v.currentSlide])})})}}};return Plugin=Object.assign(e(),{KaTeX:()=>{let i,o={version:"latest",delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredTags:["script","noscript","style","textarea","pre"]};const l=h=>new Promise((c,k)=>{const v=document.createElement("script");v.type="text/javascript",v.onload=c,v.onerror=k,v.src=h,document.head.append(v)});return{id:"katex",init:function(h){i=h;let c=i.getConfig().katex||{},k={...o,...c};const{local:v,version:m,extensions:f,...w}=k;let u=k.local||"https://cdn.jsdelivr.net/npm/katex",L=k.local?"":"@"+k.version,I=u+L+"/dist/katex.min.css",$=u+L+"/dist/contrib/mhchem.min.js",Z=u+L+"/dist/contrib/auto-render.min.js",F=[u+L+"/dist/katex.min.js"];k.extensions&&k.extensions.includes("mhchem")&&F.push($),F.push(Z);const B=()=>{renderMathInElement(h.getSlidesElement(),w),i.layout()};(J=>{let O=document.createElement("link");O.rel="stylesheet",O.href=J,document.head.appendChild(O)})(I),async function(J){for(const O of J)await l(O)}(F).then(()=>{i.isReady()?B():i.on("ready",B.bind(this))})}}},MathJax2:e,MathJax3:()=>{let i,o={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]},startup:{ready:()=>{MathJax.startup.defaultReady(),MathJax.startup.promise.then(()=>{Reveal.layout()})}}};return{id:"mathjax3",init:function(l){i=l;let h=i.getConfig().mathjax3||{},c={...o,...h};c.tex={...o.tex,...h.tex},c.options={...o.options,...h.options},c.startup={...o.startup,...h.startup};let k=c.mathjax||"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";c.mathjax=null,window.MathJax=c,function(v,m){let f=document.createElement("script");f.type="text/javascript",f.id="MathJax-script",f.src=v,f.async=!0,f.onload=()=>{typeof m=="function"&&(m.call(),m=null)},document.head.appendChild(f)}(k,function(){Reveal.addEventListener("slidechanged",function(v){MathJax.typeset()})})}}}})})})(wn);var Ei=wn.exports;const xn=yn(Ei),Ai=`<section>
   <section>
     <h2>Improving ELBO Computation in Graph Diffusion Models</h2>
-    <h4>Giulio Zani</h4>
-    <h4>Maastricht University</h4>
+    <h5>Giulio Zani</h5>
+    <div class="medium"></div>
+    <div class="medium">
+      <span style="color: white">James Townsend</span> <br />Amsterdam Machine
+      Learning Lab (AMLab)
+    </div>
+    <div class="medium">
+      <span style="color: white">Menica Dibenedetto</span> <br />Advanced
+      Computing Sciences Faculty of Science and Engineering
+    </div>
+    <h4 style="margin-bottom: 0">Maastricht University,</h4>
     <h4>Msc Artificial Intelligence</h4>
     <img
       src="./one_molecule.png"
@@ -1460,6 +1469,9 @@ Please report this to https://github.com/markedjs/marked.`,a.silent)return"<p>An
         </ul>
       </li>
     </ul>
+  </section>
+  <section>
+    <h1>Thank you!</h1>
   </section>
 </section>
 `,Ri=document.getElementsByClassName("reveal")[0];Ri.innerHTML=`
