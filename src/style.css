@@ -19,6 +19,7 @@
 .image-wrapper {
   position: relative;
   display: inline-block;
+  padding: 0;
 }
 .image-wrapper::before {
   content: "";
@@ -44,8 +45,7 @@ figure {
 }
 .medium {
   font-size: 30px;
-  color: #8E8E8E;
-
+  color: #8e8e8e;
 }
 
 figcaption,

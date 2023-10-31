@@ -1,10 +1,17 @@
 import "./style.css";
+import hljs from "highlight.js/lib/core";
+import python from "highlight.js/lib/languages/python";
 import Reveal from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown.esm.js"; // @ts-ignore
-import RevealNotes from "reveal.js/plugin/notes/notes.js"; // @ts-ignore
-import RevealMath from "reveal.js/plugin/math/math.js"; // @ts-ignore
+// @ts-ignore
+import RevealNotes from "reveal.js/plugin/notes/notes.js";
+// @ts-ignore
+import RevealMath from "reveal.js/plugin/math/math.js";
+// @ts-ignore
+import RevealHighlight from "reveal.js/plugin/highlight/highlight.js";
 import slides from "./slides.html?raw";
 
+hljs.registerLanguage("python", python);
 const el = document.getElementsByClassName("reveal")[0];
 //const mdSlides = await (await fetch("/slides.md")).text();
 el.innerHTML = `
@@ -56,7 +63,7 @@ function appendImagesSequentially(elementId: string): void {
 appendImagesSequentially("after-this");
 console.log(RevealMath);
 let deck = new Reveal({
-  plugins: [Markdown, RevealNotes, RevealMath],
+  plugins: [Markdown, RevealNotes, RevealMath, RevealHighlight],
   slideNumber: "c/t",
   hash: true,
 });

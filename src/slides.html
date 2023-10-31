@@ -50,10 +50,9 @@
     <h2>Background</h2>
     <div class="fragment">What are diffusion models?</div>
     <div class="fragment">What makes them so powerful?</div>
-    <div class="fragment">Some note on graph neural networks.</div>
-    <div class="fragment">How can we use them on graphs?</div>
+    <div class="fragment">How can we use diffusion models on graphs?</div>
+    <div class="fragment">Some remarks on graph neural networks.</div>
   </section>
-
   <section data-auto-animate>
     <em>
       "As the sun casts its golden glow over the landscape, mechanical puppies
@@ -177,12 +176,19 @@
   <section data-auto-animate data-auto-animate-id="group3">
     <h2>Deep Probabilistic Model</h2>
 
-    <div class="image-wrapper">
-      <img
-        src="./cnn_vs_gnn_2.png"
-        style="max-width: 90%; margin: -7%; margin-top: -5%"
-        class="foreground"
-      />
+    <div style="position: relative">
+      <div
+        style="
+          position: absolute;
+          background-color: white;
+        "
+      >
+        <img
+          src="./cnn_vs_gnn_2.png"
+          style="max-width: 80%; margin-top: -5%; padding: 0; margin: 0"
+          class="foreground"
+        />
+      </div>
     </div>
   </section>
   <section data-auto-animate data-auto-animate-id="group3">
@@ -299,8 +305,72 @@
   </section>
 </section>
 <section>
+  <section data-auto-animate data-auto-animate-id="7">
+    <h2>Framework</h2>
+  </section>
+  <section data-auto-animate data-auto-animate-id="7">
+    <h2>Framework</h2>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/8/86/Google_JAX_logo.svg"
+        style="max-width: 20%"
+      />
+      <figcaption>
+        Image source: <a src="https://github.com/google/jax">JAX</a>
+      </figcaption>
+    </figure>
+  </section>
+  <section data-auto-animate>
+    <h2>Numerical Stability</h2>
+  </section>
+  <section data-auto-animate>
+    <h2>Numerical Stability</h2>
+  </section>
+  <section data-auto-animate>
+    <h2>Numerical Stability</h2>
+    <p>KL-divergence is highly unstable!</p>
+    <p>
+      $$ D_{\text{KL}}(P\parallel Q)=-\sum _{x\in {\mathcal {X}}}P(x)\log
+      \left({\frac {Q(x)}{P(x)}}\right)$$
+    </p>
+  </section>
+  <section data-auto-animate>
+    <h2>Numerical Stability</h2>
+    <p data-id="f">KL-divergence is highly unstable!</p>
+    <p class="smaller-math" style="margin-left: -100px">
+      $$ D_\text{KL}(p, q) = \begin{cases} \text{xlogx}(p) - \text{xlogy}(p, q)
+      - p + q & \text{if } p > 0 \text{ and } q > 0 \\ q & \text{if } p = 0
+      \text{ and } q \geq 0 \\ \infty & \text{otherwise} \end{cases} $$
+    </p>
+  </section>
+  <section data-auto-animate>
+    <h2>Numerical Stability</h2>
+    <p data-id="f">Pull request accepted by Google's JAX team</p>
+    <img src="./carbon.svg" style="max-width: 85%" />
+  </section>
+  <section data-auto-animate data-auto-animate-id="9">
+    <h2>Computing Platform</h2>
+  </section>
+  <section data-auto-animate data-auto-animate-id="9">
+    <h2>Computing Platform</h2>
+    <figure>
+      <img
+        class="rounded-image"
+        style="max-width: 40%"
+        src="https://upload.wikimedia.org/wikipedia/commons/9/99/TPU_v4.png"
+      />
+      <figcaption>
+        Image source:
+        <a src="https://en.wikipedia.org/wiki/Tensor_Processing_Unit"
+          >Wikipedia</a
+        >
+      </figcaption>
+    </figure>
+  </section>
+</section>
+<section>
   <section>
-    <h2>Experiments</h2>
+    <h2>Results</h2>
   </section>
   <section>
     <h2>Dataset: QM9</h2>
@@ -418,6 +488,9 @@
       />
     </div>
   </section>
+  <!-- <section> -->
+  <!---->
+  <!-- </section> -->
 </section>
 <section>
   <section>
