@@ -1210,12 +1210,16 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
   <section data-auto-animate data-auto-animate-id="group3">
     <h2>Deep Probabilistic Model</h2>
     <p>Graph Neural Network</p>
-    <div class="image-wrapper">
-      <img
-        src="./message_passing.png"
-        style="max-width: 50%"
-        class="foreground"
-      />
+    <div style="position: relative">
+      <div
+        style="position: absolute; background-color: white; border-radius: 10px"
+      >
+        <img
+          src="./message_passing.png"
+          style="max-width: 50%; padding: 0; margin: 0"
+          class="foreground"
+        />
+      </div>
     </div>
   </section>
   <section data-auto-animate data-auto-animate-id="group3">
@@ -1223,10 +1227,7 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
 
     <div style="position: relative">
       <div
-        style="
-          position: absolute;
-          background-color: white;
-        "
+        style="position: absolute; background-color: white; border-radius: 10px"
       >
         <img
           src="./cnn_vs_gnn_2.png"
