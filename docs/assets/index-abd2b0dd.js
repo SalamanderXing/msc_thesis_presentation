@@ -1362,7 +1362,7 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
         style="max-width: 20%"
       />
       <figcaption>
-        Image source: <a src="https://github.com/google/jax">JAX</a>
+        Image source: <a href="https://github.com/google/jax">JAX</a>
       </figcaption>
     </figure>
   </section>
@@ -1405,7 +1405,7 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
       />
       <figcaption>
         Image source:
-        <a src="https://en.wikipedia.org/wiki/Tensor_Processing_Unit"
+        <a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit"
           >Wikipedia</a
         >
       </figcaption>
@@ -1529,6 +1529,17 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
     <div class="fragment">Advancement in the training loss.</div>
     <div class="fragment">Better Evidence Lower BOund</div>
     <div class="fragment">All while preserving permuation equivariance</div>
+  </section>
+  <section>
+    <h2>Code Availability</h2>
+    <div class="fragment">
+      Code is open source and
+      <a
+        target="_blank"
+        href="https://github.com/SalamanderXing/discrete-graph-diffusion"
+        >available on GitHub
+      </a>
+    </div>
   </section>
   <section>
     <h1>Thank you!</h1>
