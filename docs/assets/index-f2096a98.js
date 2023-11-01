@@ -1396,9 +1396,7 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
   </section>
   <section data-auto-animate data-auto-animate-id="9">
     <h2>Computing Platform</h2>
-  </section>
-  <section data-auto-animate data-auto-animate-id="9">
-    <h2>Computing Platform</h2>
+    <h4>Tensor Processing Unit (TPU)</h4>
     <figure>
       <img
         class="rounded-image"
@@ -1412,6 +1410,10 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
         >
       </figcaption>
     </figure>
+  </section>
+  <section data-auto-animate data-auto-animate-id="9">
+    <h2>Computing Platform</h2>
+    <h4>Bulk Synchronous Parallelism</h4>
   </section>
 </section>
 <section>
@@ -1499,68 +1501,34 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
       </tr>
     </table>
   </section>
-
   <section>
-    <h2 style="z-index: 100; position: relative">Qualitative Analysis</h2>
-    <div
-      style="
-        position: relative;
-        z-index: -100;
-        overflow: hidden;
-        max-height: 60%;
-      "
-    >
-      <img
-        src="./smiles_plot.png"
-        class="rounded-image"
-        style="max-width: 100%; height: auto; top: -30%; position: relative"
-      />
-    </div>
+    <img
+      src="./prediction_all_t_train.png"
+      style="max-width: 220% !important; margin: 0%; margin-left: -1000"
+      clas="rounded-image"
+    />
   </section>
   <section>
-    <h2 style="z-index: 100; position: relative">Qualitative Analysis</h2>
-    <div
-      style="
-        position: relative;
-        z-index: -100;
-        overflow: hidden;
-        max-height: 60%;
-      "
-    >
-      <img
-        src="./smiles_data_plot.png"
-        class="rounded-image"
-        style="max-width: 100%; height: auto; top: -30%; position: relative"
-      />
-    </div>
+    <img
+      src="./smiles_plot.png"
+      class="rounded-image"
+      style="max-width: 70%; height: auto; top: -30%; position: relative"
+    />
   </section>
-  <!-- <section> -->
-  <!---->
-  <!-- </section> -->
+  <section>
+    <img
+      src="./smiles_data_plot.png"
+      class="rounded-image"
+      style="height: auto; top: -30%; max-width: 70%; position: relative"
+    />
+  </section>
 </section>
 <section>
   <section>
     <h2>Summary of Contributions</h2>
     <div class="fragment">Advancement in the training loss.</div>
     <div class="fragment">Better Evidence Lower BOund</div>
-  </section>
-  <section>
-    <h2>Conclusion</h2>
-    <ul>
-      <li>
-        <strong>Main Findings:</strong>
-        <ul>
-          <li>
-            ELBO Enhancement: Achieved more accurate ELBO computation through
-            advanced diffusion models on graphs.
-          </li>
-          <li>
-            Sample Quality: Preserved permutation equivariance, ensuring
-            high-quality samples.
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="fragment">All while preserving permuation equivariance</div>
   </section>
   <section>
     <h1>Thank you!</h1>
