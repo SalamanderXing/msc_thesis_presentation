@@ -1264,7 +1264,12 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
   <section data-auto-animate data-auto-animate-id="group3">
     <h2>Deep Probabilistic Model</h2>
     <h4 data-id="g">Graph Transformer</h4>
-    <img src="./gtn.png" class="rounded-image" style="max-width: 90%" />
+    <figure>
+      <img src="./gtn.png" class="rounded-image" style="max-width: 90%" />
+      <figcaption style="margin-top: 0">
+        Image source: Yun et al. 2020
+      </figcaption>
+    </figure>
   </section>
 </section>
 <section>
@@ -1509,18 +1514,26 @@ https://github.com/highlightjs/highlight.js/issues/2277`),Se=B,xe=ae),ie===void 
     />
   </section>
   <section>
-    <img
-      src="./smiles_plot.png"
-      class="rounded-image"
-      style="max-width: 70%; height: auto; top: -30%; position: relative"
-    />
+    <figure>
+      <img
+        src="./smiles_plot.png"
+        class="rounded-image"
+        style="max-width: 70%; height: auto; top: -30%; position: relative"
+      />
+      <figcaption style="margin-top: 0">
+        Random Samples generate from model.
+      </figcaption>
+    </figure>
   </section>
   <section>
-    <img
-      src="./smiles_data_plot.png"
-      class="rounded-image"
-      style="height: auto; top: -30%; max-width: 70%; position: relative"
-    />
+    <figure>
+      <img
+        src="./smiles_data_plot.png"
+        class="rounded-image"
+        style="height: auto; top: -30%; max-width: 70%; position: relative"
+      />
+      <figcaption>Samples from QM9 dataset.</figcaption>
+    </figure>
   </section>
 </section>
 <section>
